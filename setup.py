@@ -1,12 +1,8 @@
 from setuptools import setup
-import setuptools.command.build_py
-import os
-import glob
-import shutil
 
 
 setup(name             = "xtragptools",
-      version          = 0.1,
+      version          = 0.0.2,
       description      = "",
       long_description = "",
       author           = "Esri",
