@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<metadata xml:lang="en">
+  <Esri>
+    <CreaDate>20150507</CreaDate>
+    <CreaTime>15374000</CreaTime>
+    <ArcGISFormat>1.0</ArcGISFormat>
+    <SyncOnce>TRUE</SyncOnce>
+    <ModDate>20150507</ModDate>
+    <ModTime>153740</ModTime>
+  </Esri>
+  <toolbox alias="xtra" name="Xtra GP Tools">
+    <arcToolboxHelpPath>c:\program files (x86)\arcgis\desktop10.4\Help\gp</arcToolboxHelpPath>
+    <toolsets/>
+  </toolbox>
+  <dataIdInfo>
+    <idCitation>
+      <resTitle>Xtra GP Tools</resTitle>
+    </idCitation>
+  </dataIdInfo>
+  <distInfo>
+    <distributor>
+      <distorFormat>
+        <formatName>ArcToolbox Toolbox</formatName>
+      </distorFormat>
+    </distributor>
+  </distInfo>
+</metadata>
