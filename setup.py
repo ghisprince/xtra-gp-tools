@@ -1,8 +1,13 @@
-from setuptools import setup
+try:
+    from setuptools import setup
+except:
+    import distribute_setup
+    distribute_setup.use_setuptools()
+    from setuptools import setup
 
 
 setup(name             = "xtragptools",
-      version          = 0.0.2,
+      version          = "0.0.2",
       description      = "",
       long_description = "",
       author           = "Esri",
