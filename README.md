@@ -19,9 +19,9 @@ After running install, ArcGIS desktop apps will have system toolbox automaticall
 Tools
 -----
 
-##DatasetExtentToFeatures
-in_datasets : input geodata (raster, feature class)
-out_featureclass : a feature class with on polygon feature representing the extent of each in_dataset
+####DatasetExtentToFeatures
+* in_datasets : input geodata (raster, feature class)
+* out_featureclass : a feature class with on polygon feature representing the extent of each in_dataset
 
 ![alt text][logo]
 
