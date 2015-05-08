@@ -1,4 +1,5 @@
 import arcpy
+import os
 import json
 
 class Toolbox(object):
@@ -57,14 +58,17 @@ class DatasetExtentToFeatures(object):
         # collect input parameters
         in_datasets = parameters[0].valueAsText.split(";")
         out_fc = parameters[1].valueAsText
-        out_fc_sr = arcpy.Describe(in_datasets[0]).SpatialReference
+        #out_sr = arcpy.Describe(in_datasets[0]).SpatialReference
+
+        # use gcs as output sr since all extents will fit in it
+        out_sr = arcpy.SpatialReference("WGS 1984")
 
         arcpy.CreateFeatureclass_management(os.path.dirname(out_fc),
                                             os.path.basename(out_fc),
                                             "POLYGON",
-                                            spatial_reference=out_fc_sr)
+                                            spatial_reference=out_sr)
 
-        arcpy.AddField_management(out_fc, "dataset", "TEXT", 300)
+        arcpy.AddField_management(out_fc, "dataset", "TEXT", 400)
 
         # add each dataset's extent & the dataset's name to the output
         with arcpy.da.InsertCursor(out_fc, ("SHAPE@", "dataset")) as cur:
@@ -80,6 +84,6 @@ class DatasetExtentToFeatures(object):
 
                 geom = arcpy.Polygon(pts,  d.SpatialReference)
 
-                if out_fc_sr != d.SpatialReference:
-                    geom = geom.projectAs(out_fc_sr)
-                cur.insertRow([geom, i])
+                if d.SpatialReference != out_sr:
+                    geom = geom.projectAs(out_sr)
+                cur.insertRow([geom, d.CatalogPath])
